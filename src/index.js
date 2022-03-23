@@ -11,15 +11,12 @@ const weatherModule = (()=>{
     const minTemp = document.querySelector('.min-temp');
     const maxTemp = document.querySelector('.max-temp');
 
-
-    
-    const getFeelsLike = () =>{
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=washington&appid=88cfbde6ec14cc6b1ea870b1a0aaa9b5`, {mode: 'cors'})
+    const getWeather = (location) =>{
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=88cfbde6ec14cc6b1ea870b1a0aaa9b5`, {mode: 'cors'})
         .then((response)=>{
             return response.json()
         })
         .then((response)=>{
-            console.log(response);
             locationName.textContent = response.name;
             currently.textContent = response.main.temp;
             clouds.textContent = response.weather[0].description;
@@ -28,44 +25,17 @@ const weatherModule = (()=>{
             pressure.textContent = response.main.pressure;
             minTemp.textContent = response.main.temp_min;
             maxTemp.textContent = response.main.temp_max;
+            console.log('clicked')
+        })
+    };
+    
+    const searchButton = () => {
+        searchBtns.addEventListener('click',()=>{
+            let locations = searchBar.value;
+            getWeather(locations);
         })
     }
-    getFeelsLike();
+    searchButton();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // const searchLocationInput = () =>{
-    //     location = searchBar.value;
-    // }
-    // searchLocationInput()
-
-
-
-
-
-
-
-
-    // const searchButton = (locationInput, getCurrWeather) => {
-    //     searchBtns.addEventListener('click',)
-    // }
-    // searchButton(location,getCurrentWeather);
+    return {};
 })();
