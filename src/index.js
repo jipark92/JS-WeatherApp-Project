@@ -33,7 +33,6 @@ const weatherModule = (()=>{
             } else {
                 getWeather(locations);
                 makeIconsVisible();
-
             }
         })
     };
@@ -49,11 +48,9 @@ const weatherModule = (()=>{
         let toggle = true;
         toggleCelFahBtns.addEventListener('click',()=>{
             if (toggle === true) {
-                console.log(toggle)
                 currently.textContent = Math.round(response.main.temp - 273) + "°C";
                 feelsLike.textContent = Math.round(response.main.feels_like - 273)  + "°C";
                 toggle = false;
-                console.log(toggle)
             } else if (!toggle){
                 defaultTemp(response)
                 toggle = true;
