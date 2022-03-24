@@ -16,55 +16,85 @@
             <h1>WEATHER APP</h1>
         </header>
 
-        <div class="search-bar">
-            <input type="text" class="search-location" placeholder="Texas">
-            <button type="submit" class="search-btn">Search</button>
+        <div class="button-container">
+            
+            <div class="search-bar">
+                <input type="text" class="search-location" placeholder="Any Location">
+                <button type="submit" class="search-btn">Search</button>
+            </div>
+    
+            <div class="toggle-fahrenheit">
+                <button class="toggle-fahrenheit-btn">F/C</button>
+            </div>
+
         </div>
+      
 
         <div class="weather-information">
-
             <div class="location-name-container">
                 <p>Location: </p>
-                <p class="location-name">example</p>
+                <div class="icon-container">
+                    <p class="location-name"></p>
+                    <img src="icons/location.png" class="icons">
+                </div>
             </div>
 
             <div class="currently-container">
                 <p>Currently: </p>
-                <p class="currently">example</p>
+                <div class="icon-container">
+                    <p class="currently"></p>
+                    <img src="icons/temperature.png" class="icons">
+                </div>
+
             </div>
 
             <div class="clouds-container">
                 <p>Clouds: </p>
-                <p class="clouds">example</p>
+                <div class="icon-container">
+                    <p class="clouds"></p>
+                    <img src="icons/clouds.png" class="icons">
+                </div>
             </div>
 
             <div class="feels-like-container">
                 <p>Feels Like: </p>
-                <p class="feels-like">example</p>
+                <div class="icon-container">
+                    <p class="feels-like"></p>
+                    <img src="icons/feelslike.png" class="icons">
+                </div>
             </div>
 
             <div class="humidity-container">
                 <p>Humidity: </p>
-                <p class="humidity">example</p>
+                <div class="icon-container">
+                    <p class="humidity"></p>
+                    <img src="icons/humidity.png" class="icons">
+                </div>
             </div>
 
             <div class="pressure-container">
                 <p>Pressure: </p>
-                <p class="pressure">example</p>
-            </div>
+                <div class="icon-container">
+                    <p class="pressure"></p>
+                    <img src="icons/pressure.png" class="icons">
+                </div>  
+            </div> 
 
             <div class="min-temp-container">
                 <p>Min Temp: </p>
-                <p class="min-temp">example</p>
-            </div>
+                <div class="icon-container">
+                    <p class="min-temp"></p>
+                    <img src="icons/minmaxtemp.png" class="icons">
+                </div>            </div>
 
             <div class="max-temp-container">
                 <p>Max Temp: </p>
-                <p class="max-temp" >example</p>
+                <div class="icon-container">
+                    <p class="max-temp"></p>
+                    <img src="icons/minmaxtemp.png" class="icons">
+                </div> 
             </div>
-            
         </div>
-
 
     </div>
 </body>
