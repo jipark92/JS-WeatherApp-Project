@@ -59,7 +59,7 @@ const weatherModule = (()=>{
                 toggle = true;
             }
         })
-    }
+    };
 
     const defaultTemp = (response) => {
         let celCurrTemp = Math.round(response.main.temp - 273) * 1;
@@ -77,17 +77,3 @@ const weatherModule = (()=>{
     };
 
 })();
-
-
-
-
-
-
-            // let celCurrTemp = Math.round(response.main.temp - 273) * 1;
-            // let celFeelsLikeTemp = Math.round(response.main.feels_like - 273) * 1;
-
-            // let fahCurrTemp = celCurrTemp * (9/5) + 32;
-            // currently.textContent = fahCurrTemp + "F";
-
-            // let fahFeelsLikeTemp = celFeelsLikeTemp * (9/5) + 32;
-            // feelsLike.textContent = fahFeelsLikeTemp + "F";
