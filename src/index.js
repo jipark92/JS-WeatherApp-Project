@@ -19,6 +19,8 @@ const weatherModule = (()=>{
         .then((response)=>{
             defaultTemp(response);
             toggleFahrenheit(response);
+
+            console.log(response)
         })
         .catch(()=>{
             alert("no location found");
@@ -67,7 +69,7 @@ const weatherModule = (()=>{
         let fahCurrTemp = celCurrTemp * (9/5) + 32;
         let fahFeelsLikeTemp = celFeelsLikeTemp * (9/5) + 32;
 
-        locationName.textContent = response.name;
+        locationName.textContent = response.name + `, ${response.sys.country}`
         currently.textContent = Math.floor(fahCurrTemp) + "F";
         clouds.textContent = response.weather[0].description;
         feelsLike.textContent = Math.floor(fahFeelsLikeTemp) + "F";
