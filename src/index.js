@@ -47,10 +47,12 @@ const weatherModule = (()=>{
 
     const toggleFahrenheit = (response) => {
         let toggle = true;
+        let celCurrently = response.main.temp - 273
+        let celFeelsLike = response.main.feels_like - 273
         toggleCelFahBtns.addEventListener('click',()=>{
             if (toggle) {
-                currently.textContent = Math.round(response.main.temp - 273) + "°C";
-                feelsLike.textContent = Math.round(response.main.feels_like - 273)  + "°C";
+                currently.textContent = parseFloat(celCurrently.toFixed(1))  + "°C";
+                feelsLike.textContent = parseFloat(celFeelsLike.toFixed(1)) + "°C";
                 toggle = false;
             } else if (!toggle){
                 defaultTemp(response);
@@ -60,13 +62,13 @@ const weatherModule = (()=>{
     };
 
     const defaultTemp = (response) => {
-        let celCurrTemp = Math.round(response.main.temp - 273) * 1;
-        let celFeelsLikeTemp = Math.round(response.main.feels_like - 273) * 1;
+        let celCurrTemp = Math.round(response.main.temp - 273);
+        let celFeelsLikeTemp = Math.round(response.main.feels_like - 273);
         let fahCurrTemp = celCurrTemp * (9/5) + 32;
         let fahFeelsLikeTemp = celFeelsLikeTemp * (9/5) + 32;
 
-        currently.textContent = Math.round(fahCurrTemp) + "°F";
-        feelsLike.textContent = Math.round(fahFeelsLikeTemp) + "°F";
+        currently.textContent = parseFloat(fahCurrTemp.toFixed(2)) + "°F";
+        feelsLike.textContent = parseFloat(fahFeelsLikeTemp.toFixed(2)) + "°F";
     };
 
     const showInfo = (response) => {
