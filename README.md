@@ -10,5 +10,7 @@ live netlify page: https://jipark-weatherapp.netlify.app/
 
 
 Instruction: 
+
     - Type in any city, state or country.
+    
     - press the °F/°C button to switch celsius <---> fahrenheit.
