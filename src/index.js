@@ -19,8 +19,6 @@ const weatherModule = (()=>{
         .then((response)=>{
             defaultTemp(response);
             toggleFahrenheit(response);
-
-            console.log(response)
         })
         .catch(()=>{
             alert("no location found");
@@ -52,8 +50,8 @@ const weatherModule = (()=>{
         toggleCelFahBtns.addEventListener('click',()=>{
             if (toggle === true) {
                 console.log(toggle)
-                currently.textContent = Math.round(response.main.temp - 273) * 1 + "C";
-                feelsLike.textContent = Math.round(response.main.feels_like - 273) * 1 + "C";
+                currently.textContent = Math.round(response.main.temp - 273) + "°C";
+                feelsLike.textContent = Math.round(response.main.feels_like - 273)  + "°C";
                 toggle = false;
                 console.log(toggle)
             } else if (!toggle){
@@ -70,9 +68,9 @@ const weatherModule = (()=>{
         let fahFeelsLikeTemp = celFeelsLikeTemp * (9/5) + 32;
 
         locationName.textContent = response.name + `, ${response.sys.country}`
-        currently.textContent = Math.floor(fahCurrTemp) + "F";
+        currently.textContent = Math.round(fahCurrTemp) + "°F";
         clouds.textContent = response.weather[0].description;
-        feelsLike.textContent = Math.floor(fahFeelsLikeTemp) + "F";
+        feelsLike.textContent = Math.round(fahFeelsLikeTemp) + "°F";
         humidity.textContent = response.main.humidity + "%";
         pressure.textContent = response.main.pressure + "mb";
         wind.textContent = response.wind.speed + "mph";
