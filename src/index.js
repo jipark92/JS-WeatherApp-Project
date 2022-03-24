@@ -8,8 +8,7 @@ const weatherModule = (()=>{
     const feelsLike = document.querySelector('.feels-like');
     const humidity = document.querySelector('.humidity');
     const pressure = document.querySelector('.pressure');
-    const minTemp = document.querySelector('.min-temp');
-    const maxTemp = document.querySelector('.max-temp');
+    const wind = document.querySelector('.wind');
     const icons = document.querySelectorAll('.icons');
 
     const getWeather = (location) =>{
@@ -18,16 +17,8 @@ const weatherModule = (()=>{
             return response.json();
         })
         .then((response)=>{
-
-            locationName.textContent = response.name
-            currently.textContent = Math.round(response.main.temp - 273) / 1 + "C";
-            clouds.textContent = response.weather[0].description;
-            feelsLike.textContent = Math.round(response.main.feels_like - 273) / 1 + "C";
-            humidity.textContent = response.main.humidity;
-            pressure.textContent = response.main.pressure + "mb";
-            minTemp.textContent = Math.round(response.main.temp_min - 273) *  1 + "C";
-            maxTemp.textContent = Math.round(response.main.temp_max - 273) * 1 + "C";
-
+            defaultTemp(response);
+            toggleFahrenheit(response);
         })
         .catch(()=>{
             alert("no location found");
@@ -38,7 +29,7 @@ const weatherModule = (()=>{
         searchBtns.addEventListener('click',()=>{
             let locations = searchBar.value;
             if (searchBar.value === "" || searchBar === null){
-                return
+                return;
             } else {
                 getWeather(locations);
                 makeIconsVisible();
@@ -55,13 +46,48 @@ const weatherModule = (()=>{
     };
 
     const toggleFahrenheit = (response) => {
+        let toggle = true;
         toggleCelFahBtns.addEventListener('click',()=>{
-            currently.textContent = Math.round(response.main.temp - 273) * 1 
-            feelsLike.textContent = Math.round(response.main.feels_like - 273) * 1 
-            minTemp.textContent = Math.round(response.main.temp_min - 273) *  1  
-            maxTemp.textContent = Math.round(response.main.temp_max - 273) * 1 
+            if (toggle === true) {
+                console.log(toggle)
+                currently.textContent = Math.round(response.main.temp - 273) * 1 + "C";
+                feelsLike.textContent = Math.round(response.main.feels_like - 273) * 1 + "C";
+                toggle = false;
+                console.log(toggle)
+            } else if (!toggle){
+                defaultTemp(response)
+                toggle = true;
+            }
         })
     }
 
+    const defaultTemp = (response) => {
+        let celCurrTemp = Math.round(response.main.temp - 273) * 1;
+        let celFeelsLikeTemp = Math.round(response.main.feels_like - 273) * 1;
+        let fahCurrTemp = celCurrTemp * (9/5) + 32;
+        let fahFeelsLikeTemp = celFeelsLikeTemp * (9/5) + 32;
+
+        locationName.textContent = response.name;
+        currently.textContent = Math.floor(fahCurrTemp) + "F";
+        clouds.textContent = response.weather[0].description;
+        feelsLike.textContent = Math.floor(fahFeelsLikeTemp) + "F";
+        humidity.textContent = response.main.humidity + "%";
+        pressure.textContent = response.main.pressure + "mb";
+        wind.textContent = response.wind.speed + "mph";
+    };
 
 })();
+
+
+
+
+
+
+            // let celCurrTemp = Math.round(response.main.temp - 273) * 1;
+            // let celFeelsLikeTemp = Math.round(response.main.feels_like - 273) * 1;
+
+            // let fahCurrTemp = celCurrTemp * (9/5) + 32;
+            // currently.textContent = fahCurrTemp + "F";
+
+            // let fahFeelsLikeTemp = celFeelsLikeTemp * (9/5) + 32;
+            // feelsLike.textContent = fahFeelsLikeTemp + "F";
