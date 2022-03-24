@@ -47,12 +47,12 @@ const weatherModule = (()=>{
     const toggleFahrenheit = (response) => {
         let toggle = true;
         toggleCelFahBtns.addEventListener('click',()=>{
-            if (toggle === true) {
+            if (toggle) {
                 currently.textContent = Math.round(response.main.temp - 273) + "°C";
                 feelsLike.textContent = Math.round(response.main.feels_like - 273)  + "°C";
                 toggle = false;
             } else if (!toggle){
-                defaultTemp(response)
+                defaultTemp(response);
                 toggle = true;
             }
         })
@@ -64,7 +64,7 @@ const weatherModule = (()=>{
         let fahCurrTemp = celCurrTemp * (9/5) + 32;
         let fahFeelsLikeTemp = celFeelsLikeTemp * (9/5) + 32;
 
-        locationName.textContent = response.name + `, ${response.sys.country}`
+        locationName.textContent = response.name + `, ${response.sys.country}`;
         currently.textContent = Math.round(fahCurrTemp) + "°F";
         clouds.textContent = response.weather[0].description;
         feelsLike.textContent = Math.round(fahFeelsLikeTemp) + "°F";
