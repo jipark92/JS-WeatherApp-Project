@@ -17,6 +17,7 @@ const weatherModule = (()=>{
             return response.json();
         })
         .then((response)=>{
+            showInfo(response);
             defaultTemp(response);
             toggleFahrenheit(response);
         })
@@ -64,13 +65,16 @@ const weatherModule = (()=>{
         let fahCurrTemp = celCurrTemp * (9/5) + 32;
         let fahFeelsLikeTemp = celFeelsLikeTemp * (9/5) + 32;
 
-        locationName.textContent = response.name + `, ${response.sys.country}`;
         currently.textContent = Math.round(fahCurrTemp) + "°F";
-        clouds.textContent = response.weather[0].description;
         feelsLike.textContent = Math.round(fahFeelsLikeTemp) + "°F";
+    };
+
+    const showInfo = (response) => {
+        locationName.textContent = response.name + `, ${response.sys.country}`;
+        clouds.textContent = response.weather[0].description;
         humidity.textContent = response.main.humidity + "%";
         pressure.textContent = response.main.pressure + "mb";
         wind.textContent = response.wind.speed + "mph";
-    };
+    }
 
 })();
