@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -69,6 +72,7 @@ body {
     background-color: white;
     border: none;
     border-radius: 10px;
+    color: black;
 }
 
 .search-bar .search-location:focus{
@@ -80,6 +84,8 @@ body {
     cursor: pointer;
     background-color: lightblue;
     border: 3px solid blue;
+    color: black;
+
 }
 
 .weather-information {
@@ -138,6 +144,7 @@ body {
     background-color: white;
     border: none;
     border-radius: 10px;
+    color: black;
 }
 
 .toggle-fahrenheit-btn:hover {
@@ -145,6 +152,7 @@ body {
     cursor: pointer;
     background-color: lightblue;
     border: 3px solid blue;
+    color: black;
 }
 
 .button-container {
