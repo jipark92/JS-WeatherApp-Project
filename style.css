@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #0093E9;
+}
+
+.app-container {
+    background-color: #0093E9;
+    background-image: linear-gradient(180deg, #0093E9 0%, #80D0C7 100%);
+    min-height: 800px;
+    min-width: 400px;
+    display: flex;
+    padding: 1.5rem;
+    border-radius: 50px;
+    border: 5px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 10%;
+    width: 100%;
+    color: white;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid white;
+}
+
+.title .weather-icon {
+    height: 90px;
+    width: 100px;
+}
+
+.search-bar {
+    margin: 0.5rem;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.search-bar .search-location {
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    padding: 1rem;
+    font-weight: 1000;
+}
+
+.search-bar .search-btn {
+    width: 75px;
+    height: 35px;
+    font-weight: 1000;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.search-bar .search-location:focus{
+    border: 3px solid blue;
+}
+
+.search-bar .search-btn:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    background-color: lightblue;
+    border: 3px solid blue;
+}
+
+.weather-information {
+    border: 1px solid white;
+    border-radius: 25px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 1rem;
+    overflow: auto;
+}
+
+.weather-information > div {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem;
+    border-bottom:  1px solid white;
+}
+
+.weather-information p:nth-child(1) {
+    /* border: 1px solid white; */
+    font-weight: 600;
+    color: darkblue;
+}
+
+.weather-information p:nth-child(2) {
+    /* border: 1px solid white; */
+    font-weight: 600;
+    color:darkblue;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+
+.icon-container img{
+    height: 25px;
+    width: 25px;
+    visibility: hidden;
+}
+
+.toggle-fahrenheit-btn {
+    width: 35px;
+    height: 35px;
+    font-weight: 1000;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.toggle-fahrenheit-btn:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    background-color: lightblue;
+    border: 3px solid blue;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+}
+
