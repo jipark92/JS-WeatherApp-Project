@@ -29,7 +29,7 @@ const weatherModule = (()=>{
     const searchButton = () => {
         searchBtns.addEventListener('click',()=>{
             let locations = searchBar.value;
-            if (searchBar.value === "" || searchBar === null){
+            if (searchBar.value === "" || searchBar.value === null){
                 return;
             } else {
                 getWeather(locations);
